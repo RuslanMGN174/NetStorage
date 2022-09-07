@@ -1,0 +1,6 @@
+# Project exclude paths
+/NetClient/target/
+.idea
+# Project exclude paths
+/NetCore/target/
+/NetServer/target/
