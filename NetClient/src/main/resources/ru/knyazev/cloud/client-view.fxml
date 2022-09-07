@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #F0F2F3;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.knyazev.cloud.controllers.NetClientController">
+   <bottom>
+      <Pane prefHeight="27.0" prefWidth="600.0" style="-fx-background-color: #F0F2F3;" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="5.0" top="5.0" />
+         </BorderPane.margin>
+         <GridPane alignment="BASELINE_CENTER" layoutX="1.0" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="27.0" prefWidth="600.0">
+            <columnConstraints>
+               <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" />
+               <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" />
+               <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" />
+               <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" />
+            </columnConstraints>
+            <rowConstraints>
+               <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <Button fx:id="copy" cancelButton="true" layoutX="9.0" mnemonicParsing="false" onAction="#copyClicked" prefHeight="27.0" prefWidth="120.0" styleClass="buttons-style" text="Копировать" GridPane.valignment="CENTER" />
+            <Button fx:id="move" layoutX="113.0" mnemonicParsing="false" onAction="#moveClicked" prefHeight="27.0" prefWidth="120.0" text="Переместить" textAlignment="CENTER" GridPane.columnIndex="1" />
+            <Button fx:id="delete" layoutX="344.0" mnemonicParsing="false" onAction="#dropClicked" prefHeight="27.0" prefWidth="120.0" text="Удалить" textAlignment="CENTER" GridPane.columnIndex="3" />
+            <Button fx:id="mkdir" layoutX="227.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="120.0" text="Каталог" textAlignment="CENTER" GridPane.columnIndex="2" />
+         </GridPane>
+      </Pane>
+   </bottom>
+   <right>
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="363.0" prefWidth="295.0" BorderPane.alignment="CENTER">
+         <ListView fx:id="serverFileView" layoutX="-39.0" layoutY="31.0" onMouseClicked="#onServerMouseClicked" prefHeight="333.0" prefWidth="139.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0" />
+         <Label alignment="CENTER" contentDisplay="TOP" maxHeight="-Infinity" minHeight="30.0" prefHeight="30.0" prefWidth="295.0" text="Server:" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      </AnchorPane>
+   </right>
+   <center>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="363.0" prefWidth="339.0" BorderPane.alignment="CENTER">
+         <children>
+            <ListView fx:id="clientFileView" layoutX="54.0" layoutY="30.0" onMouseClicked="#onClientMouseClicked" prefHeight="333.0" prefWidth="337.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
+               <contextMenu>
+                  <ContextMenu>
+                    <items>
+                      <MenuItem fx:id="mkdirMenu" mnemonicParsing="false" onAction="#onMkdir" text="Каталог" />
+                        <MenuItem fx:id="dropMenu" mnemonicParsing="false" onAction="#onDrop" text="Удалить" />
+                    </items>
+                  </ContextMenu>
+               </contextMenu>
+            </ListView>
+            <Label id="clientRootLabel" fx:id="clientRoot" alignment="CENTER" contentDisplay="TOP" layoutX="-1.0" layoutY="6.0" maxHeight="-Infinity" minHeight="30.0" prefHeight="30.0" prefWidth="292.0" text=" Client Root:" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Label>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
